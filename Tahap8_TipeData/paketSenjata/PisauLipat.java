@@ -1,8 +1,11 @@
 package paketSenjata;
 
 public class PisauLipat implements Senjata {
+    public String getNama() {
+        return "Pisau Lipat";
+    }
+
     public int serang() {
-        System.out.println("SLASH! Pisau menebas");
         return DAMAGE_DASAR;
     }
 }

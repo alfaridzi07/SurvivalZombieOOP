@@ -5,7 +5,7 @@ public class Zombie extends Makhluk {
         super(nama);
     }
 
-    public void serang() {
-        System.out.println(getNama() + ": menyerang pelan");
+    public int serang() {
+        return 5;                  // damage zombie baru
     }
 }

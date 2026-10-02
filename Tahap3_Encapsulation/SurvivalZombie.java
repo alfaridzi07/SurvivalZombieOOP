@@ -60,10 +60,6 @@ class Zombie extends Makhluk {
     Zombie(String nama) {
         super(nama);
     }
-
-    public void menggigit() {
-        System.out.println(getNama() + ": GRAAAH! (menggigit)");
-    }
 }
 
 public class SurvivalZombie {
@@ -73,9 +69,11 @@ public class SurvivalZombie {
             rina.tembak();         // tembakan ke-4 gagal
         }
         rina.isiUlang();
+        System.out.println("Amunisi " + rina.getNama() + ": " + rina.getAmunisi());   // baca lewat getter
         rina.terluka(-5);          // ditolak
         rina.terluka(130);         // nyawa tidak boleh minus
         rina.printStatus();
+        System.out.println("Nyawa via getter: " + rina.getNyawa());
 
         Zombie z = new Zombie("Zombie Lorong");
         z.terluka(40);

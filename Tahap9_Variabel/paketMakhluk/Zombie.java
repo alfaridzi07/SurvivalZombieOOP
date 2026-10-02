@@ -22,7 +22,7 @@ public class Zombie extends Makhluk {
         return jumlahZombie;
     }
 
-    public void serang() {
-        System.out.println(getNama() + ": menyerang pelan");
+    public int serang() {
+        return hitungDamage() / 2;         // zombie baru: setengah dari damage dasar
     }
 }

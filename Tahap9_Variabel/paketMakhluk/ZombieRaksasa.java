@@ -1,12 +1,14 @@
 package paketMakhluk;
 
 public class ZombieRaksasa extends Zombie {
+    private static final int BONUS_DAMAGE = 25;   // konstanta static
+
     public ZombieRaksasa(String nama) {
         super(nama);
     }
 
     @Override
-    public void serang() {
-        System.out.println(getNama() + ": membanting! (damage 35)");
+    public int serang() {
+        return hitungDamage() + BONUS_DAMAGE;     // lebih kuat dari zombie biasa
     }
 }

@@ -6,7 +6,7 @@ public class ZombieBiasa extends Zombie {
     }
 
     @Override
-    public void serang() {
-        System.out.println(getNama() + ": menggigit! (damage 10)");
+    public int serang() {
+        return 10;                 // damage zombie biasa
     }
 }
