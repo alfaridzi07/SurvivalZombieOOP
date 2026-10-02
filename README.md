@@ -23,9 +23,10 @@ Isi repo ini mengikuti **Materi 04 — Bahasa Pemrograman Java**. Pakai repo ini
 ### 2. Ikuti alur belajar ini di setiap tahap
 
 1. **Baca** kode di folder tahap tersebut.
-2. **Tebak** output-nya sebelum dijalankan.
-3. **Jalankan**, lalu bandingkan dengan tebakanmu.
-4. **Ubah sesuatu** dan lihat apa yang terjadi, terutama kalau compiler mengeluarkan error. Pesan error adalah bagian dari belajar. Ada ide percobaan di bagian [Coba Sendiri](#coba-sendiri).
+2. **Lihat alurnya** di `flowchart.drawio` dan `pseudocode.md` dalam folder yang sama kalau kodenya belum kebayang. Penjelasannya ada di bagian [Flowchart dan Pseudocode](#flowchart-dan-pseudocode).
+3. **Tebak** output-nya sebelum dijalankan.
+4. **Jalankan**, lalu bandingkan dengan tebakanmu.
+5. **Ubah sesuatu** dan lihat apa yang terjadi, terutama kalau compiler mengeluarkan error. Pesan error adalah bagian dari belajar. Ada ide percobaan di bagian [Coba Sendiri](#coba-sendiri).
 
 Kerjakan **berurutan**, karena tiap tahap membangun di atas tahap sebelumnya. Tapi tiap folder berdiri sendiri: bisa dikompilasi dan dijalankan tanpa folder lain.
 
@@ -62,6 +63,50 @@ SurvivalZombieOOP/
 ```
 
 Tahap 1 sampai 5 hanya punya satu file `SurvivalZombie.java` yang memuat semua class, supaya kamu fokus ke konsepnya dulu. Mulai Tahap 6, setiap class `public` dipisah ke file sendiri di dalam paket.
+
+Selain kode Java, setiap folder tahap juga berisi penjelas alur: `pseudocode.md`, `flowchart.drawio`, dan folder `flowchart_png/` berisi gambar flowchart-nya.
+
+---
+
+## Flowchart dan Pseudocode
+
+Dua file ini membantu kamu memahami **alur** program sebelum (atau sesudah) membaca kodenya.
+
+- **`pseudocode.md`**: kode ditulis ulang dengan bahasa sehari-hari, lengkap dengan hasil yang diharapkan dan gambar flowchart-nya. Bisa langsung dibaca di GitHub.
+- **`flowchart_png/`**: gambar flowchart (PNG), satu gambar per halaman. Bisa dibuka tanpa aplikasi apa pun.
+- **`flowchart.drawio`**: diagram alur yang bisa diedit. Satu file bisa berisi beberapa halaman (lihat tab di bagian bawah draw.io), misalnya satu halaman untuk `main()` dan satu halaman untuk tiap method penting.
+
+**Cara membuka `flowchart.drawio`** (hanya perlu kalau mau mengedit; untuk sekadar melihat, pakai gambar PNG-nya):
+
+- Buka [app.diagrams.net](https://app.diagrams.net), lalu **File → Open from → Device**.
+- Pasang aplikasi **draw.io Desktop**.
+- Di VS Code, pasang ekstensi **Draw.io Integration**, lalu klik filenya.
+
+**Arti bentuk dan warna:**
+
+| Bentuk / warna | Artinya |
+|---|---|
+| Hijau, ujung membulat | Mulai atau selesai |
+| Biru | Proses biasa |
+| Biru, bergaris ganda di sisi | Memanggil method (isinya ada di halaman lain) |
+| Kuning, jajar genjang | Tampil ke layar (output) |
+| Oranye, belah ketupat | Percabangan atau perulangan |
+| Ungu | Method yang diwarisi dari super-class (Tahap 2) |
+| Merah | Pesan error (Tahap 6) |
+
+**Isi halaman tiap tahap:**
+
+| Tahap | Halaman di `flowchart.drawio` |
+|---|---|
+| 1 | `main()` |
+| 2 | `main()` |
+| 3 | `main()`, `tembak()`, `terluka(damage)` |
+| 4 | `main()`, `serang()` |
+| 5 | Alur kompilasi |
+| 6 | `main()`, aturan kompilasi |
+| 7 | `main()`, `lawan()`, `serang()` senjata |
+| 8 | `main()`, `laporanKota()`, primitif vs referensi |
+| 9 | `main()`, `new Zombie()`, `hitungDamage()`, jenis variabel |
 
 ---
 
