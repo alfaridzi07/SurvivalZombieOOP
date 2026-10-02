@@ -7,18 +7,16 @@ public class Survivor extends Makhluk {
         super(nama);
     }
 
-    public void tembak() {
+    public int tembak() {
         if (amunisi > 0) {
             amunisi = amunisi - 1;
-            System.out.println(getNama() + " menembak! Sisa amunisi: " + amunisi);
-        } else {
-            System.out.println(getNama() + ": amunisi habis!");
+            return 10;                 // damage satu peluru
         }
+        return 0;                      // amunisi habis, tidak ada damage
     }
 
     public void isiUlang() {
         amunisi = 3;
-        System.out.println(getNama() + " mengisi ulang amunisi");
     }
 
     public int getAmunisi() {

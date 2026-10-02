@@ -5,6 +5,10 @@ public class PisauLipat implements Senjata {
         return "Pisau Lipat";
     }
 
+    public boolean butuhAmunisi() {
+        return false;
+    }
+
     public int serang() {
         return DAMAGE_DASAR;
     }

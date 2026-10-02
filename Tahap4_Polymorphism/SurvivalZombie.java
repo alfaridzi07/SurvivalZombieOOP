@@ -14,15 +14,15 @@ class Makhluk {
         return nyawa;
     }
 
-    public void terluka(int damage) {
+    public boolean terluka(int damage) {
         if (damage <= 0) {
-            System.out.println("Damage harus lebih dari 0");
-        } else {
-            nyawa = nyawa - damage;
-            if (nyawa < 0) {
-                nyawa = 0;
-            }
+            return false;              // ditolak, nyawa tidak berubah
         }
+        nyawa = nyawa - damage;
+        if (nyawa < 0) {
+            nyawa = 0;
+        }
+        return true;                   // damage diterima
     }
 
     public void printStatus() {
@@ -37,18 +37,16 @@ class Survivor extends Makhluk {
         super(nama);
     }
 
-    public void tembak() {
+    public int tembak() {
         if (amunisi > 0) {
             amunisi = amunisi - 1;
-            System.out.println(getNama() + " menembak! Sisa amunisi: " + amunisi);
-        } else {
-            System.out.println(getNama() + ": amunisi habis!");
+            return 10;                 // damage satu peluru
         }
+        return 0;                      // amunisi habis, tidak ada damage
     }
 
     public void isiUlang() {
         amunisi = 3;
-        System.out.println(getNama() + " mengisi ulang amunisi");
     }
 
     public int getAmunisi() {
@@ -101,7 +99,14 @@ public class SurvivalZombie {
             int damage = z.serang();   // satu perintah, damage berbeda tiap jenis zombie
             System.out.println(z.getNama() + " menyerang " + rina.getNama() + " (damage " + damage + ")");
             rina.terluka(damage);
-            rina.tembak();             // Rina menembak setelah tiap serangan
+
+            int tembakan = rina.tembak();   // Rina membalas setelah tiap serangan
+            if (tembakan > 0) {
+                z.terluka(tembakan);
+                System.out.println(rina.getNama() + " menembak " + z.getNama() + " (damage " + tembakan + "), sisa amunisi: " + rina.getAmunisi());
+            } else {
+                System.out.println(rina.getNama() + ": amunisi habis!");
+            }
         }
 
         rina.printStatus();
@@ -112,6 +117,7 @@ public class SurvivalZombie {
         }
 
         rina.isiUlang();
+        System.out.println(rina.getNama() + " mengisi ulang amunisi");
         System.out.println("Amunisi " + rina.getNama() + ": " + rina.getAmunisi());
     }
 }

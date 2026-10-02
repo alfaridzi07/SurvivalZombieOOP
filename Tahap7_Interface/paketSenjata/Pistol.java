@@ -5,6 +5,10 @@ public class Pistol implements Senjata {
         return "Pistol";
     }
 
+    public boolean butuhAmunisi() {
+        return true;
+    }
+
     public int serang() {
         return DAMAGE_DASAR * 2;
     }

@@ -6,6 +6,14 @@ Isi repo ini mengikuti **Materi 04 — Bahasa Pemrograman Java**. Pakai repo ini
 
 > Dunia, karakter, dan nama di proyek ini orisinal untuk keperluan belajar, tidak berafiliasi dengan franchise game mana pun. Aksinya ringan (tembak dan gigit), tanpa gore.
 
+> **⚠️ Catatan pembaruan:** kode Java di Tahap 2 sampai 9 baru saja dirapikan, tapi `pseudocode.md`, `flowchart.drawio`, dan gambar di `flowchart_png/` **belum diperbarui** (belum sempat). Kalau ada perbedaan antara kode dan pseudocode/flowchart, **anggap kode Java sebagai acuan yang benar**. Perubahannya:
+>
+> - `serang()` (Zombie dan Senjata) dan `tembak()` (Survivor) sekarang sama-sama mengembalikan `int` damage, tanpa `println` di dalamnya. Pencetakan dilakukan oleh pemanggilnya (`main` / `lawan`).
+> - `terluka()` mengembalikan `boolean` (`false` kalau damage ditolak) dan tidak mencetak pesan sendiri. `isiUlang()` juga tidak mencetak apa-apa.
+> - Tahap 7 sampai 9: `lawan(penembak, target, senjata)` memakai `Survivor.tembak(Senjata)`. Damage dihitung oleh senjata. Interface `Senjata` punya method abstract baru `butuhAmunisi()`, jadi amunisi hanya berkurang kalau senjatanya memang memakai amunisi (`PisauLipat` tidak).
+> - Tahap 9: `serang()` sekarang memakai `hitungDamage()` (ikut naik bersama `level`), `PisauLipat` dipakai lagi, dan jumlah amunisi maksimum jadi konstanta `AMUNISI_MAKS`.
+> - Output program sedikit berbeda dari bagian "Hasil yang diharapkan" di `pseudocode.md`.
+
 ---
 
 ## Mulai dari Sini
@@ -72,6 +80,8 @@ Selain kode Java, setiap folder tahap juga berisi penjelas alur: `pseudocode.md`
 
 Dua file ini membantu kamu memahami **alur** program sebelum (atau sesudah) membaca kodenya.
 
+> **Belum diperbarui:** untuk sementara, `pseudocode.md` dan flowchart di Tahap 2 sampai 9 masih menggambarkan versi kode sebelumnya. Lihat catatan di bagian atas README.
+
 - **`pseudocode.md`**: kode ditulis ulang dengan bahasa sehari-hari, lengkap dengan hasil yang diharapkan dan gambar flowchart-nya. Bisa langsung dibaca di GitHub.
 - **`flowchart_png/`**: gambar flowchart (PNG), satu gambar per halaman. Bisa dibuka tanpa aplikasi apa pun.
 - **`flowchart.drawio`**: diagram alur yang bisa diedit. Satu file bisa berisi beberapa halaman (lihat tab di bagian bawah draw.io), misalnya satu halaman untuk `main()` dan satu halaman untuk tiap method penting.
@@ -137,7 +147,7 @@ Class dipindah ke paket `paketMakhluk` dan dipanggil dari `SurvivalZombie` denga
 **Perhatikan:** satu file hanya boleh punya satu class `public`, dan nama file harus sama dengan nama class-nya (`Survivor` → `Survivor.java`). Nama paket juga harus cocok dengan nama folder.
 
 ### Tahap 7: Interface
-`Senjata` adalah interface yang hanya mendefinisikan **apa** yang harus bisa dilakukan (`serang()`). `Pistol`, `Shotgun`, dan `PisauLipat` mengisi **bagaimana** caranya dengan `implements`.
+`Senjata` adalah interface yang hanya mendefinisikan **apa** yang harus bisa dilakukan (`serang()` dan `butuhAmunisi()`). `Pistol`, `Shotgun`, dan `PisauLipat` mengisi **bagaimana** caranya dengan `implements`.
 **Perhatikan:** method `lawan(Zombie target, Senjata senjata)` tidak peduli senjata apa yang dipakai, selama senjata itu mengimplementasikan `Senjata`. Menambah senjata baru tidak perlu mengubah `lawan()`.
 
 ### Tahap 8: Tipe Data Primitif dan Referensi

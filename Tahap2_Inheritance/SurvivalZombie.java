@@ -14,9 +14,9 @@ class Makhluk {
 class Survivor extends Makhluk {
     int amunisi = 3;
 
-    void tembak() {
+    int tembak() {
         amunisi = amunisi - 1;
-        System.out.println(nama + " menembak! Sisa amunisi: " + amunisi);
+        return 10;                 // damage satu peluru
     }
 }
 
@@ -30,7 +30,8 @@ public class SurvivalZombie {
     public static void main(String[] args) {
         Survivor rina = new Survivor();
         rina.nama = "Rina";
-        rina.tembak();            // milik Survivor
+        int damage = rina.tembak();   // milik Survivor
+        System.out.println(rina.nama + " menembak! (damage " + damage + "), sisa amunisi: " + rina.amunisi);
         rina.printStatus();       // diwarisi dari Makhluk
 
         Zombie zombie = new Zombie();

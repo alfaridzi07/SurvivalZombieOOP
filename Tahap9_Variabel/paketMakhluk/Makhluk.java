@@ -18,15 +18,15 @@ public class Makhluk {
         return nyawa;
     }
 
-    public void terluka(int damage) {
+    public boolean terluka(int damage) {
         if (damage <= 0) {
-            System.out.println("Damage harus lebih dari 0");
-        } else {
-            nyawa = nyawa - damage;
-            if (nyawa < 0) {
-                nyawa = 0;
-            }
+            return false;              // ditolak, nyawa tidak berubah
         }
+        nyawa = nyawa - damage;
+        if (nyawa < 0) {
+            nyawa = 0;
+        }
+        return true;                   // damage diterima
     }
 
     public void printStatus() {
